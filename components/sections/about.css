@@ -67,39 +67,39 @@
   margin-top: 30px;
 }
 
-.btn-primary,
-.btn-secondary {
+.btn-view,
+.btn-save {
   display: inline-block;
-  padding: 12px 28px;
-  font-size: 1rem;
-  font-weight: 500;
+  padding: 16px 36px;
+  font-size: 1.2rem;
+  font-weight: 600;
   border-radius: 8px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
-/* View button */
-.btn-primary {
+/* View button styles */
+.btn-view {
   background: #2c3e50;
   color: #fff;
   box-shadow: 0 5px 15px rgba(44, 62, 80, 0.2);
 }
 
-.btn-primary:hover {
+.btn-view:hover {
   background: #1a252f;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(44, 62, 80, 0.3);
 }
 
-/* Download button */
-.btn-secondary {
+/* Save button styles */
+.btn-save {
   background: #fff;
   color: #2c3e50;
   border: 1px solid #2c3e50;
   box-shadow: 0 5px 15px rgba(44, 62, 80, 0.1);
 }
 
-.btn-secondary:hover {
+.btn-save:hover {
   background: #f1f1f1;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(44, 62, 80, 0.2);
@@ -131,10 +131,10 @@
     font-size: 1.1rem;
   }
 
-  .btn-primary,
-  .btn-secondary {
-    padding: 10px 24px;
-    font-size: 0.95rem;
+  .btn-view,
+  .btn-save {
+    padding: 14px 32px;
+    font-size: 1.1rem;
   }
 
   .resume-actions {

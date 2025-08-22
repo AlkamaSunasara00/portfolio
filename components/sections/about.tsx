@@ -38,7 +38,7 @@ export default function About() {
               {/* Open in new tab */}
               <a
                 href="/Alkama Resume.pdf"
-                className="btn-primary"
+                className="btn-view"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -46,7 +46,7 @@ export default function About() {
               </a>
 
               {/* Download directly */}
-              <a href="/Alkama Resume.pdf" className="btn-secondary" download>
+              <a href="/Alkama Resume.pdf" className="btn-save" download>
                 Download Resume
               </a>
             </div>
