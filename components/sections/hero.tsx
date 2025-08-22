@@ -44,17 +44,31 @@
 import { ReactTyped } from "react-typed"
 import { IoRocketSharp } from "react-icons/io5"
 import { MdEmail } from "react-icons/md"
+import React, { useState, useRef, useEffect } from "react"
 
 import "./hero.css"
 
 export default function Hero() {
+  const [videoEnded, setVideoEnded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
-    const scrollToSection = (sectionId: string) => {
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5 // Set playback speed here (e.g., 1.5x)
+    }
+  }, [])
+
+  const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
   }
+
+  const handleVideoEnded = () => {
+    setVideoEnded(true)
+  }
+
   return (
     <section id="hero" className="hero">
       <div className="container hero-container">
@@ -95,20 +109,35 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side - Floating Skills */}
-        <div className="skills-container">
-          <div className="floating-skill skill-1">React.js</div>
-          <div className="floating-skill skill-2">Node.js</div>
-          <div className="floating-skill skill-3">TypeScript</div>
-          <div className="floating-skill skill-4">MongoDB</div>
-          <div className="floating-skill skill-5">Express.js</div>
-          <div className="floating-skill skill-6">HTML5</div>
-          <div className="floating-skill skill-7">CSS3</div>
-          <div className="floating-skill skill-8">JavaScript</div>
-          <div className="floating-skill skill-9">SQL</div>
-          <div className="floating-skill skill-10">Git</div>
-          {/* <div className="floating-skill skill-11">Next.js</div> */}
-          <div className="floating-skill skill-12">Tailwind</div>
+        {/* Right Side - Video and Floating Skills */}
+        <div className="right-side-container">
+          <div className="hero-video">
+            <video
+              ref={videoRef}
+              src="medium-vecteezy_youtube-channel-presentation-on-all-devices-2d-motion_57689543_medium.mp4"
+              autoPlay
+              onEnded={handleVideoEnded}
+              controls={false}
+              muted
+              playsInline
+            />
+          </div>
+
+          {/* Show floating skills only after video ended */}
+          <div className={`skills-container ${videoEnded ? "show-skills" : "hidden"}`}>
+            <div className="floating-skill skill-1">React.js</div>
+            <div className="floating-skill skill-2">Node.js</div>
+            <div className="floating-skill skill-3">TypeScript</div>
+            <div className="floating-skill skill-4">MongoDB</div>
+            <div className="floating-skill skill-5">Express.js</div>
+            <div className="floating-skill skill-6">HTML5</div>
+            <div className="floating-skill skill-7">CSS3</div>
+            <div className="floating-skill skill-8">JavaScript</div>
+            <div className="floating-skill skill-9">SQL</div>
+            <div className="floating-skill skill-10">Git</div>
+            {/* <div className="floating-skill skill-11">Next.js</div> */}
+            <div className="floating-skill skill-12">Tailwind</div>
+          </div>
         </div>
       </div>
     </section>
