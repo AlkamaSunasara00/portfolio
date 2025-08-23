@@ -38,9 +38,11 @@
 }
 
 .profile-photo {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
+  width: 400px;
+  height: 400px;
+  border-radius: 60% 10% 60% 10% / 10% 60% 10% 60%;
+
+
   object-fit: cover;
   filter: grayscale(100%);
   transition: all 0.4s ease;
