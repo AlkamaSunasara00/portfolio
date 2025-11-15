@@ -41,58 +41,42 @@
 
 "use client"
 
-import { ReactTyped } from "react-typed";
-import { IoRocketSharp, IoOpenOutline } from "react-icons/io5";
-import { MdEmail } from "react-icons/md";
-import React, { useState, useRef, useEffect } from "react";
+import { ReactTyped } from "react-typed"
+import { IoRocketSharp } from "react-icons/io5"
+import { MdEmail } from "react-icons/md"
+import React, { useState, useRef, useEffect } from "react"
 
-import "./hero.css";
+import "./hero.css"
 
 export default function Hero() {
-  const [videoEnded, setVideoEnded] = useState(false);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoEnded, setVideoEnded] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (videoRef.current) videoRef.current.playbackRate = 1.5;
-  }, []);
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 1.5 // Set playback speed here (e.g., 1.5x)
+    }
+  }, [])
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+  }
 
-  const handleVideoEnded = () => setVideoEnded(true);
-
-  // ----- 3-D Card data (replace with your own projects) -----
-  const cards = [
-    {
-      title: "E-Commerce Platform",
-      desc: "Full-stack MERN app with Stripe payments & admin dashboard.",
-      tech: "React • Node • MongoDB",
-      link: "https://github.com/alkama/ecommerce",
-    },
-    {
-      title: "TaskFlow SaaS",
-      desc: "Real-time collaborative task manager built with Next.js.",
-      tech: "Next.js • Tailwind • Prisma",
-      link: "https://github.com/alkama/taskflow",
-    },
-    {
-      title: "AI Chat Widget",
-      desc: "Embeddable chat UI powered by OpenAI API.",
-      tech: "TypeScript • Express • Socket.io",
-      link: "https://github.com/alkama/ai-chat",
-    },
-  ];
+  const handleVideoEnded = () => {
+    setVideoEnded(true)
+  }
 
   return (
     <section id="hero" className="hero">
       <div className="container hero-container">
-        {/* ---------- LEFT – TEXT ---------- */}
+        {/* Left Side - Text */}
         <div className="hero-content">
           <h1 className="hero-title">
             Hi, I'm <span className="highlight">Alkama Sunasara</span>
           </h1>
-
           <h2 className="hero-subtitle">
             <ReactTyped
               strings={[
@@ -107,72 +91,54 @@ export default function Hero() {
               loop
             />
           </h2>
-
           <p className="hero-tagline">
-            Crafting digital experiences with{" "}
-            <span className="highlight">clean code</span> and{" "}
-            <span className="highlight">modern technologies</span>. Passionate
-            about building scalable web applications that make an impact.
+            Crafting digital experiences with <span className="highlight">clean code</span> and{" "}
+            <span className="highlight">modern technologies</span>.  
+            Passionate about building scalable web applications that make an impact.
           </p>
-
           <div className="hero-buttons">
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="btn-primary"
-            >
+            <button onClick={() => scrollToSection("projects")} className="btn-primary">
               <IoRocketSharp className="btn-icon" />
               View My Work
             </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="btn-secondary"
-            >
+            <button onClick={() => scrollToSection("contact")} className="btn-secondary">
               <MdEmail className="btn-icon" />
               Contact Me
             </button>
           </div>
         </div>
 
-        {/* ---------- RIGHT – VIDEO + 3D CARDS ---------- */}
+        {/* Right Side - Video and Floating Skills */}
         <div className="right-side-container">
-          {/* Video */}
-          <video
-            ref={videoRef}
-            src="medium-vecteezy_youtube-channel-presentation-on-all-devices-2d-motion_57689543_medium.mp4"
-            autoPlay
-            muted
-            playsInline
-            controls={false}
-            onEnded={handleVideoEnded}
-            className="hero-video"
-          />
+          <div className="hero-video">
+            <video
+              ref={videoRef}
+              src="medium-vecteezy_youtube-channel-presentation-on-all-devices-2d-motion_57689543_medium.mp4"
+              autoPlay
+              onEnded={handleVideoEnded}
+              controls={false}
+              muted
+              playsInline
+            />
+          </div>
 
-          {/* 3-D Cards – appear after video ends */}
-          <div className={`cards-wrapper ${videoEnded ? "show" : ""}`}>
-            {cards.map((c, i) => (
-              <div
-                key={i}
-                className={`project-card card-${i + 1}`}
-                style={{ "--delay": `${i * 0.2}s` } as React.CSSProperties}
-              >
-                <div className="card-inner">
-                  <h3 className="card-title">{c.title}</h3>
-                  <p className="card-desc">{c.desc}</p>
-                  <span className="card-tech">{c.tech}</span>
-                  <a
-                    href={c.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="card-link"
-                  >
-                    View <IoOpenOutline />
-                  </a>
-                </div>
-              </div>
-            ))}
+          {/* Show floating skills only after video ended */}
+          <div className={`skills-container ${videoEnded ? "show-skills" : "hidden"}`}>
+            <div className="floating-skill skill-1">React.js</div>
+            <div className="floating-skill skill-2">Node.js</div>
+            <div className="floating-skill skill-3">TypeScript</div>
+            <div className="floating-skill skill-4">MongoDB</div>
+            <div className="floating-skill skill-5">Express.js</div>
+            <div className="floating-skill skill-6">HTML5</div>
+            <div className="floating-skill skill-7">CSS3</div>
+            <div className="floating-skill skill-8">JavaScript</div>
+            <div className="floating-skill skill-9">SQL</div>
+            <div className="floating-skill skill-10">Git</div>
+            {/* <div className="floating-skill skill-11">Next.js</div> */}
+            <div className="floating-skill skill-12">Tailwind</div>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
