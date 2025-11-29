@@ -4,7 +4,7 @@ const experiences = [
 {
   title: "Web Developer Trainee",
   company: "Valudas Technologies Pvt. Ltd.",
-  period: "June 2024 – Present",
+  period: "May 2025 – Present",
   responsibilities: [
     "Assisted in development and maintenance of web applications using React.js, Node.js, and MySQL",
     "Created responsive user interfaces and dashboards with HTML, CSS, and JavaScript",
