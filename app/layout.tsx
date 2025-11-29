@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Inter, Poppins } from "next/font/google"
 import "./globals.css"
+import Schema from "@/components/Schema"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -79,6 +80,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+      <Schema/>
       <body>{children}</body>
     </html>
   )
