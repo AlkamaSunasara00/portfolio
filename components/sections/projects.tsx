@@ -67,6 +67,55 @@ import "./projects.css"
 import { RxCross2 } from "react-icons/rx"
 
 const projects = [
+ {
+    title: "Sheetal Sweets",
+    thumbnail: "sheetal-thumbnail.png",
+    description:
+      "A fully dynamic bakery & sweets platform with an admin dashboard, built to digitize a traditional business and manage content efficiently in real-time.",
+    
+    details:
+      "Sheetal Sweets (sheetalsweets.in) is a complete dynamic website developed from scratch, including both frontend and admin dashboard. The platform allows real-time management of products, categories, and website content through a custom-built admin panel. Designed with a mobile-first approach, the site delivers a smooth browsing experience while enabling the business owner to update products and information without technical knowledge.",
+    
+    challenges:
+      "Building a scalable structure that supports dynamic data while maintaining high performance was a key challenge. Handling image uploads, optimizing API responses, and ensuring smooth admin-to-frontend data flow required careful backend planning and efficient state management.",
+    
+    outcomes:
+      "Delivered a production-ready digital solution that not only improves brand presence but also simplifies business operations through an easy-to-use dashboard. The system enables quick updates, reduces manual effort, and enhances customer interaction with the brand.",
+    
+    futureScope:
+      "😑😑😑😑",
+    
+    images: [
+      { title: "Homepage", items: ["sheetal-home.png"] },
+      { title: "Product Section", items: ["sheetal-products.png"] },
+      { title: "Admin Dashboard", items: ["sheetal-dashboard.png"] },
+      { title: "Content Management", items: ["sheetal-admin-products.png"] },
+    ],
+
+    technologies: [
+      "React",
+      "Node.js",
+      "Express",
+      "MySQL",
+      "Multer",
+      "TailwindCSS"
+    ],
+
+    duration: "2025",
+    role: "Full Stack Developer",
+    teamSize: 3,
+
+    responsibilities: [
+      "Developed full-stack dynamic website with API integration",
+      "Built admin dashboard for managing products, categories, and content",
+      "Implemented image upload system using Multer",
+      "Designed responsive UI with smooth user experience",
+      "Structured MySQL database and optimized queries",
+      "Handled complete deployment and production setup"
+    ],
+
+    liveUrl: "https://sheetalsweets.in",
+  },
   {
     title: "ZepX",
     thumbnail: "zepxThumbnail-CZzajLvP.png",
@@ -153,9 +202,11 @@ export default function Projects() {
                       Live Demo
                     </a>
                   )}
-                  <a href={project.githubUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer">
-                    View Code
-                  </a>
+                  {project.githubUrl && project.githubUrl !== "#" && (
+                    <a href={project.githubUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer">
+                      View Code
+                    </a>
+                  )}
                   <button className="btn-more" onClick={() => setSelectedProject(project)}>
                     More Details
                   </button>
@@ -221,9 +272,11 @@ export default function Projects() {
                       Live Demo
                     </a>
                   )}
-                  <a href={selectedProject.githubUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer">
-                    View Code
-                  </a>
+                  {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
+                    <a href={selectedProject.githubUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer">
+                      View Code
+                    </a>
+                  )}
                 </div>
 
               </div>
