@@ -38,7 +38,7 @@ export default function Hero() {
             </h2>
           </div>
           
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl xl:text-9xl font-black uppercase tracking-tighter leading-[0.85] text-black drop-shadow-[4px_4px_0px_#FFD93D]">
+          <h1 className="text-[14vw] sm:text-7xl lg:text-8xl xl:text-9xl font-black uppercase tracking-tighter leading-[0.85] text-black drop-shadow-[4px_4px_0px_#FFD93D]">
             Hi, I'm <br />
             <span className="text-transparent" style={{ WebkitTextStroke: "2px black", WebkitTextFillColor: "transparent" }}>Alkama</span>
             <br />
