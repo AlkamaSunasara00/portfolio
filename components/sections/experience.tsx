@@ -2,9 +2,19 @@ import "./experience.css"
 
 const experiences = [
 {
+  title: "Web Developer Intern",
+  company: "Quba Infotech",
+  period: "Feb 2026 – Present",
+  responsibilities: [
+    "Collaborating closely with the Web Development Team to implement and optimize company projects",
+    "Following industry best practices to perform assigned development tasks diligently",
+    "Demonstrating eagerness to learn and maintaining high standards of professional ethics",
+  ],
+},
+{
   title: "Web Developer Trainee",
   company: "Valudas Technologies Pvt. Ltd.",
-  period: "May 2025 – Present",
+  period: "May 2025 – Jan 2026",
   responsibilities: [
     "Assisted in development and maintenance of web applications using React.js, Node.js, and MySQL",
     "Created responsive user interfaces and dashboards with HTML, CSS, and JavaScript",
