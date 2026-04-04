@@ -1,0 +1,25 @@
+.lanyard-wrapper {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  max-width: 400px;
+  height: 500px; /* Provides vertical space for physics */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(1);
+  transform-origin: center;
+  background: transparent;
+  cursor: grab;
+}
+
+.lanyard-wrapper:active {
+  cursor: grabbing;
+}
+
+@media (max-width: 768px) {
+  .lanyard-wrapper {
+    height: 400px;
+  }
+}

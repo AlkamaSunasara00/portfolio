@@ -1,4 +1,5 @@
 import "./about.css"
+import Lanyard from "../ui/lanyard"
 
 export default function About() {
   return (
@@ -8,11 +9,7 @@ export default function About() {
 
         <div className="about-content">
           <div className="about-image">
-            <img
-              src="/developer-headshot-bw.jpg"
-              alt="Alkama Sunasara - Profile Photo"
-              className="profile-photo"
-            />
+            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
           </div>
 
           <div className="about-text">
