@@ -67,29 +67,30 @@ import "./projects.css"
 import { RxCross2 } from "react-icons/rx"
 
 const projects = [
- {
+  {
     title: "Sheetal Sweets",
     thumbnail: "sheetal-thumbnail.png",
+
     description:
-      "A fully dynamic bakery & sweets platform with an admin dashboard, built to digitize a traditional business and manage content efficiently in real-time.",
-    
+      "A full-stack business management platform built for a local sweets & bakery brand, enabling dynamic content control, product management, and a strong digital presence.",
+
     details:
-      "Sheetal Sweets (sheetalsweets.in) is a complete dynamic website developed from scratch, including both frontend and admin dashboard. The platform allows real-time management of products, categories, and website content through a custom-built admin panel. Designed with a mobile-first approach, the site delivers a smooth browsing experience while enabling the business owner to update products and information without technical knowledge.",
-    
+      "Sheetal Sweets (sheetalsweets.in) is a complete digital transformation of a traditional sweets business. The platform includes a dynamic website and a custom admin dashboard for real-time management of products, categories, and content. Built with a focus on scalability and performance, the system ensures smooth data flow between backend and frontend while delivering a clean and responsive user experience.",
+
     challenges:
-      "Building a scalable structure that supports dynamic data while maintaining high performance was a key challenge. Handling image uploads, optimizing API responses, and ensuring smooth admin-to-frontend data flow required careful backend planning and efficient state management.",
-    
+      "Coordinating development across multiple contributors while maintaining consistent code structure and performance was a key challenge. Additionally, handling dynamic data, image uploads, and ensuring real-time reflection of admin changes on the frontend required careful API and database design.",
+
     outcomes:
-      "Delivered a production-ready digital solution that not only improves brand presence but also simplifies business operations through an easy-to-use dashboard. The system enables quick updates, reduces manual effort, and enhances customer interaction with the brand.",
-    
+      "Delivered a production-ready system that enhances business operations and digital visibility. Enabled non-technical users to manage website content independently, reducing dependency on developers and improving operational efficiency.",
+
     futureScope:
       "😑😑😑😑",
-    
+
     images: [
       { title: "Homepage", items: ["sheetal-home.png"] },
-      { title: "Product Section", items: ["sheetal-products.png"] },
+      { title: "Product Listing", items: ["sheetal-products.png"] },
       { title: "Admin Dashboard", items: ["sheetal-dashboard.png"] },
-      { title: "Content Management", items: ["sheetal-admin-products.png"] },
+      { title: "Product Management Panel", items: ["sheetal-admin-products.png"] },
     ],
 
     technologies: [
@@ -106,12 +107,12 @@ const projects = [
     teamSize: 3,
 
     responsibilities: [
-      "Developed full-stack dynamic website with API integration",
-      "Built admin dashboard for managing products, categories, and content",
+      "Led frontend development and UI/UX implementation",
+      "Developed core backend APIs and handled frontend-backend integration",
+      "Built key modules of the admin dashboard (product & category management)",
       "Implemented image upload system using Multer",
-      "Designed responsive UI with smooth user experience",
-      "Structured MySQL database and optimized queries",
-      "Handled complete deployment and production setup"
+      "Collaborated with team members to maintain clean architecture and code consistency",
+      "Participated in deployment and production setup"
     ],
 
     liveUrl: "https://sheetalsweets.in",
