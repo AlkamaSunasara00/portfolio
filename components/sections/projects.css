@@ -409,6 +409,8 @@
     grid-template-columns: 1fr;
     padding: 16px;
     border: 4px solid var(--border);
+    overflow-y: auto; /* Enable scrolling for the modal box itself */
+    display: block; /* Change from grid to block for easier layout flow on mobile */
   }
 
   .modal-left, .modal-right {
@@ -416,10 +418,15 @@
     padding: 16px;
     margin-bottom: 24px;
     overflow: visible;
+    border: none;
+    box-shadow: none;
   }
 
   .modal-title {
     font-size: 2rem;
+    display: block;
+    transform: none;
+    text-align: center;
   }
 
   .modal-links {
