@@ -87,10 +87,10 @@ const projects = [
       "😑😑😑😑",
 
     images: [
-      { title: "Homepage", items: ["sheetal-home.png"] },
-      { title: "Product Listing", items: ["sheetal-products.png"] },
-      { title: "Admin Dashboard", items: ["sheetal-dashboard.png"] },
-      { title: "Product Management Panel", items: ["sheetal-admin-products.png"] },
+      { title: "Homepage", items: ["sheetal-homepage.png"] },
+      { title: "Product Menupage", items: ["sheetal-menu.png"] },
+      { title: "Navbar Mega Menu", items: ["sheetal-mega-menu.png"] },
+      { title: "Contact Page", items: ["sheetal-contact.png"] },
     ],
 
     technologies: [
