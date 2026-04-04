@@ -172,8 +172,20 @@ export default function Projects() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null)
 
   useEffect(() => {
-    document.body.style.overflow = selectedProject ? "hidden" : "auto"
-  }, [selectedProject])
+    const isLocked = selectedProject || lightboxImage;
+    if (isLocked) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+    };
+  }, [selectedProject, lightboxImage])
 
   return (
     <section id="projects" className="projects section">
