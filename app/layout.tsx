@@ -1,21 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Poppins } from "next/font/google"
+import { Space_Grotesk } from "next/font/google"
 import "./globals.css"
 import Schema from "@/components/Schema"
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
-})
-
-const poppins = Poppins({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
-  variable: "--font-poppins",
+  variable: "--font-space-grotesk",
 })
+
+
 
 export const metadata: Metadata = {
   title: "Alkama Sunasara - Full Stack Developer",
@@ -79,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${spaceGrotesk.variable} font-sans`}>
       <Schema/>
       <body>{children}</body>
     </html>

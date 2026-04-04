@@ -1,5 +1,7 @@
 .experience {
-  background: var(--bg-white);
+  background: var(--muted);
+  border-bottom: 8px solid var(--border);
+  padding: 80px 20px;
 }
 
 .timeline {
@@ -14,59 +16,73 @@
   left: 30px;
   top: 0;
   bottom: 0;
-  width: 2px;
-  background: var(--text-primary);
+  width: 4px;
+  background: var(--border);
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   padding-left: 80px;
 }
 
 .timeline-dot {
   position: absolute;
-  left: 21px;
+  left: 18px;
   top: 0;
-  width: 20px;
-  height: 20px;
-  background: var(--accent-blue);
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 0 0 3px var(--accent-blue);
+  width: 28px;
+  height: 28px;
+  background: var(--secondary);
+  border: 4px solid var(--border);
+  box-shadow: 4px 4px 0px var(--border);
+  border-radius: 0;
 }
 
 .timeline-content {
   background: white;
   padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  border: 4px solid var(--border);
+  border-radius: 0;
+  box-shadow: 8px 8px 0px var(--border);
+  transition: all 0.1s ease;
 }
 
 .timeline-content:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  transform: translate(-4px, -4px);
+  box-shadow: 12px 12px 0px var(--border);
 }
 
 .job-title {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: var(--text-primary);
-  margin-bottom: 8px;
-  font-family: var(--font-poppins), sans-serif;
+  margin-bottom: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  background: var(--secondary);
+  display: inline-block;
+  padding: 4px 8px;
+  border: 4px solid var(--border);
+  box-shadow: 4px 4px 0px var(--border);
 }
 
 .company {
-  color: var(--accent-blue);
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 4px 12px;
+  border: 4px solid var(--border);
   font-size: 1.1rem;
-  margin-bottom: 8px;
-  font-weight: 600;
+  margin-bottom: 16px;
+  font-weight: 900;
+  display: inline-block;
+  box-shadow: 2px 2px 0px var(--border);
 }
 
 .period {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 900;
+  margin-left: 12px;
+  text-transform: uppercase;
 }
 
 .responsibilities {
@@ -76,34 +92,23 @@
 
 .responsibilities li {
   position: relative;
-  padding-left: 20px;
-  margin-bottom: 8px;
-  color: var(--text-secondary);
+  padding-left: 24px;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+  font-weight: 700;
   line-height: 1.6;
 }
 
 .responsibilities li::before {
-  content: "▸";
+  content: "■";
   position: absolute;
   left: 0;
-  color: var(--accent-blue);
-  font-weight: bold;
+  color: var(--primary);
+  font-weight: 900;
 }
 
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 20px;
-  }
-
-  .timeline-item {
-    padding-left: 60px;
-  }
-
-  .timeline-dot {
-    left: 11px;
-  }
-
-  .timeline-content {
-    padding: 20px;
-  }
+  .timeline::before { left: 20px; }
+  .timeline-item { padding-left: 60px; }
+  .timeline-dot { left: 8px; }
 }
