@@ -27,15 +27,25 @@ export default function Skills() {
   return (
     <section id="skills" className="skills section">
       <div className="container">
-        <h2 className="section-title">Skills & Technologies</h2>
+        <div className="skills-header">
+          <h2 className="title-massive">Arsenal</h2>
+          {/* <div className="title-decoration"></div> */}
+        </div>
 
-        <div className="skills-grid">
+        <div className="skills-wrapper">
           {skillsData.map((category, index) => (
-            <div key={index} className="skill-card">
-              <h3 className="skill-category">{category.category}</h3>
-              <div className="skill-list">
+            <div key={index} className="skill-window">
+              <div className="skill-window-header">
+                <h3 className="skill-window-title">{category.category}</h3>
+                <div className="window-controls">
+                  <span className="window-btn"></span>
+                  <span className="window-btn"></span>
+                  <span className="window-btn"></span>
+                </div>
+              </div>
+              <div className="skill-window-content">
                 {category.skills.map((skill, skillIndex) => (
-                  <span key={skillIndex} className="skill-tag">
+                  <span key={skillIndex} className="skill-badge">
                     {skill}
                   </span>
                 ))}

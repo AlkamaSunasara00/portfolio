@@ -1,66 +1,3 @@
-// "use client"
-
-// import "./contact.css"
-
-// export default function Contact() {
-//   return (
-//     <section id="contact" className="contact section">
-//       <div className="container">
-//         <h2 className="section-title">Get In Touch</h2>
-
-//         <div className="contact-content">
-//           <div className="contact-info">
-//             <h3>Let's Connect</h3>
-//             <p>
-//               I'm always interested in hearing about new opportunities and exciting projects. 
-//               Whether you have a question or just want to say hi, feel free to reach out!
-//             </p>
-
-//             <div className="contact-details">
-//               <div className="contact-item">
-//                 <strong>Email:</strong>
-//                 <a href="mailto:sunasaraalkama0000@gmail.com">
-//                   sunasaraalkama0000@gmail.com
-//                 </a>
-//               </div>
-//               <div className="contact-item">
-//                 <strong>LinkedIn:</strong>
-//                 <a
-//                   href="https://www.linkedin.com/in/alkama-sunasara-b682a3316"
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                 >
-//                   linkedin.com/in/alkama-sunasara
-//                 </a>
-//               </div>
-//               <div className="contact-item">
-//                 <strong>GitHub:</strong>
-//                 <a
-//                   href="https://github.com/AlkamaSunasara00"
-//                   target="_blank"
-//                   rel="noopener noreferrer"
-//                 >
-//                   github.com/alkama-sunasara
-//                 </a>
-//               </div>
-//               <div className="contact-item">
-//                 <strong>Phone:</strong>
-//                 <a href="tel:+919978750622">+91 99787 50622</a>
-//               </div>
-//               <div className="contact-item">
-//                 <strong>Location:</strong>
-//                 Palanpur, Gujarat, India
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-
-
 "use client"
 
 import "./contact.css"
@@ -70,80 +7,87 @@ import { FaGithubSquare } from "react-icons/fa";
 import { FaSquarePhone } from "react-icons/fa6";
 import { FaLocationDot } from "react-icons/fa6";
 
-
-
-
+const contactLinks = [
+  {
+    name: "Email",
+    value: "alkama.codespace@gmail.com",
+    href: "mailto:sunasaraalkama0000@gmail.com",
+    icon: <MdEmail />
+  },
+  {
+    name: "LinkedIn",
+    value: "alkama-sunasara-b682a3316",
+    href: "https://www.linkedin.com/in/alkama-sunasara-b682a3316",
+    icon: <FaLinkedin />
+  },
+  {
+    name: "GitHub",
+    value: "AlkamaSunasara00",
+    href: "https://github.com/AlkamaSunasara00",
+    icon: <FaGithubSquare />
+  },
+  {
+    name: "Phone",
+    value: "+91 99787 50622",
+    href: "tel:+919978750622",
+    icon: <FaSquarePhone />
+  },
+]
 
 export default function Contact() {
   return (
     <section id="contact" className="contact section">
-      <div className="container">
-        {/* Header */}
-        <div className="contact-header">
-          <h2 className="section-title">Get In Touch</h2>
-          <p>
-            I’m passionate about building web applications and collaborating on exciting projects. 
-            If you’d like to connect, here are the best ways to reach me:
-          </p>
+      {/* Endless Marquee Banner */}
+      <div className="marquee">
+        <div className="marquee-content">
+          <span>GET IN TOUCH</span><span className="star">★</span>
+          <span>LET'S CONNECT</span><span className="star">★</span>
+          <span>GET IN TOUCH</span><span className="star">★</span>
+          <span>LET'S CONNECT</span><span className="star">★</span>
         </div>
+        <div className="marquee-content">
+          <span>GET IN TOUCH</span><span className="star">★</span>
+          <span>LET'S CONNECT</span><span className="star">★</span>
+          <span>GET IN TOUCH</span><span className="star">★</span>
+          <span>LET'S CONNECT</span><span className="star">★</span>
+        </div>
+      </div>
 
-        {/* Contact Info Grid */}
-        <div className="contact-grid">
-          <div className="contact-item">
-            <span className="icon"><MdEmail />
-</span>
-            <div>
-              <strong>Email</strong>
-              <a href="mailto:sunasaraalkama0000@gmail.com">alkama.codespace@gmail.com</a>
+      <div className="container contact-container">
+        <div className="contact-poster">
+          {/* Decorative Corners */}
+          <div className="corner corner-tl"></div>
+          <div className="corner corner-br"></div>
+
+          <div className="poster-header">
+            <h3>Ready to build something?</h3>
+            <p className="poster-desc">
+              I’m passionate about building web applications and collaborating on exciting projects. Drop a message!
+            </p>
+            <div className="location-tag">
+              <FaLocationDot /> Palanpur, Gujarat, India
             </div>
           </div>
 
-          <div className="contact-item">
-            <span className="icon"><FaLinkedin />
-</span>
-            <div>
-              <strong>LinkedIn</strong>
-              <a
-                href="https://www.linkedin.com/in/alkama-sunasara-b682a3316"
-                target="_blank"
-                rel="noopener noreferrer"
+          <div className="contact-links">
+            {contactLinks.map((link, idx) => (
+              <a 
+                key={idx} 
+                href={link.href} 
+                target={link.href.startsWith('mailto') || link.href.startsWith('tel') ? '_self' : '_blank'} 
+                rel="noopener noreferrer" 
+                className="contact-block"
               >
-                linkedin.com/in/alkama-sunasara-b682a3316
+                <div className="contact-block-left">
+                  <span className="contact-icon">{link.icon}</span>
+                  <span className="contact-name">{link.name}</span>
+                </div>
+                <div className="contact-block-right">
+                  <span className="contact-value">{link.value}</span>
+                  <span className="contact-arrow">→</span>
+                </div>
               </a>
-            </div>
-          </div>
-
-          <div className="contact-item">
-            <span className="icon"><FaGithubSquare />
-</span>
-            <div>
-              <strong>GitHub</strong>
-              <a
-                href="https://github.com/AlkamaSunasara00"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                github.com/AlkamaSunasara00
-              </a>
-            </div>
-          </div>
-
-          <div className="contact-item">
-            <span className="icon"><FaSquarePhone />
-</span>
-            <div>
-              <strong>Phone</strong>
-              <a href="tel:+919978750622">+91 99787 50622</a>
-            </div>
-          </div>
-
-          <div className="contact-item">
-            <span className="icon"><FaLocationDot />
-</span>
-            <div>
-              <strong>Location</strong>
-              <p>Palanpur, Gujarat, India</p>
-            </div>
+            ))}
           </div>
         </div>
       </div>

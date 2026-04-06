@@ -1,112 +1,249 @@
 .contact {
-  background: var(--secondary);
-  padding: 100px 20px;
+  background: var(--background);
   border-bottom: 8px solid var(--border);
-}
-
-.contact-header {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 60px;
-  background: white;
-  border: 4px solid var(--border);
-  padding: 32px;
-  box-shadow: 8px 8px 0px var(--border);
-  transform: rotate(1deg);
-}
-
-.contact-header h2 {
-  font-size: 3rem;
-  margin-bottom: 12px;
-  color: var(--text-primary);
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-.contact-header p {
-  color: var(--text-primary);
-  font-size: 1.2rem;
-  font-weight: 700;
-  line-height: 1.7;
-}
-
-.contact-grid {
-  max-width: 950px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-}
-
-.contact-item {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  background: white;
-  padding: 24px 28px;
-  border: 4px solid var(--border);
-  border-radius: 0;
-  box-shadow: 8px 8px 0px var(--border);
-  transition: all 0.1s ease;
-}
-
-.contact-item:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 12px 12px 0px var(--border);
-  background: var(--primary);
-}
-
-.contact-item strong {
-  display: block;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--text-primary);
-  margin-bottom: 8px;
-}
-
-.contact-item:hover strong {
-  color: white;
-}
-
-.contact-item > div {
+  position: relative;
   overflow: hidden;
-  width: 100%;
+  padding: 0; 
+  padding-bottom: 120px;
 }
 
-.contact-item a,
-.contact-item p {
-  color: var(--text-primary);
+/* Endless Marquee Banner */
+.marquee {
+  width: 100vw;
+  background: var(--primary);
+  border-bottom: 8px solid var(--border);
+  padding: 20px 0;
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  animation: marquee 15s linear infinite;
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-text-stroke: 1px #000;
+}
+
+.marquee .star {
+  color: var(--secondary);
+  margin: 0 40px;
+  -webkit-text-stroke: 2px #000;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.contact-container {
+  margin-top: 100px;
+}
+
+.contact-poster {
+  background: var(--card); /* bright contrast interior */
+  border: 8px solid var(--border);
+  box-shadow: 20px 20px 0px var(--border);
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Hard edge shapes in corners */
+.corner {
+  position: absolute;
+  width: 40px; 
+  height: 40px;
+  border: 8px solid var(--border);
+  z-index: 3;
+}
+.corner-tl {
+  top: -8px; left: -8px;
+  background: var(--secondary);
+}
+.corner-br {
+  bottom: -8px; right: -8px;
+  background: var(--accent);
+}
+
+.poster-header {
+  padding: 50px 60px;
+  border-bottom: 8px solid var(--border);
+  background: var(--background);
+}
+
+.poster-header h3 {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--foreground);
+  margin-bottom: 25px;
+  text-shadow: 5px 5px 0px var(--primary);
+  -webkit-text-stroke: 1px var(--border);
+}
+
+.poster-desc {
+  font-size: 1.4rem;
   font-weight: 700;
-  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--foreground);
+  max-width: 700px;
+  margin-bottom: 35px;
+}
+
+.location-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--border);
+  color: var(--background);
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 50px;
+  box-shadow: 4px 4px 0px var(--secondary);
+}
+
+/* Hardcoded icon color inside dark tag */
+.location-tag svg {
+  color: var(--background);
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 35px 60px;
+  border-bottom: 5px solid var(--border);
   text-decoration: none;
-  line-height: 1.5;
-  transition: all 0.1s ease;
-  overflow-wrap: break-word;
-  word-break: break-all;
-  display: block;
+  background: var(--card);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+.contact-block:last-child {
+  border-bottom: none;
 }
 
-.contact-item:hover a,
-.contact-item:hover p {
-  color: white;
+.contact-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--primary);
+  transform: translateY(100%);
+  transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 0;
 }
 
-.contact-item a:hover {
-  text-decoration: underline;
+/* Alternating bright colors on hover */
+.contact-block:nth-child(2)::before { background: var(--secondary); }
+.contact-block:nth-child(3)::before { background: var(--muted); }
+.contact-block:nth-child(4)::before { background: var(--accent); }
+
+.contact-block:hover::before {
+  transform: translateY(0);
 }
 
-.icon {
-  font-size: 2rem;
-  color: var(--text-primary);
-  flex-shrink: 0;
-  margin-top: 3px;
-  transition: all 0.1s ease;
+.contact-block-left,
+.contact-block-right {
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.2s ease;
 }
 
-.contact-item:hover .icon {
-  color: white;
+.contact-block:hover .contact-block-left {
+  transform: translateX(15px);
 }
 
-@media (max-width: 768px) {
-  .contact-grid { grid-template-columns: 1fr; gap: 20px; }
+.contact-block:hover .contact-block-right {
+  transform: translateX(-15px);
+}
+
+.contact-icon {
+  font-size: 2.8rem;
+  color: var(--foreground);
+  margin-right: 25px;
+  display: flex; 
+}
+
+.contact-name {
+  font-size: 2.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--foreground);
+}
+
+.contact-value {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-right: 25px;
+}
+
+.contact-arrow {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--foreground);
+  transition: transform 0.2s;
+}
+
+.contact-block:hover .contact-arrow {
+  transform: translateX(10px) scale(1.2);
+}
+
+/* 
+ * Force text to brutal black on hover!
+ * Since bright neon colors are the background, black text is essential.
+ */
+.contact-block:hover .contact-icon,
+.contact-block:hover .contact-name,
+.contact-block:hover .contact-value,
+.contact-block:hover .contact-arrow {
+  color: #000 !important;
+}
+
+@media (max-width: 900px) {
+  .poster-header {
+    padding: 30px;
+  }
+  .poster-header h3 {
+    font-size: 2.5rem;
+    text-shadow: 3px 3px 0px var(--primary);
+  }
+  .contact-block {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 30px;
+    gap: 15px;
+  }
+  .contact-block:hover .contact-block-left,
+  .contact-block:hover .contact-block-right {
+    transform: none; 
+  }
+  .contact-block-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .contact-value {
+    font-size: 1rem;
+    word-break: break-all;
+  }
+  .contact-arrow {
+    font-size: 2rem;
+  }
 }

@@ -1,19 +1,202 @@
 .education {
   background: var(--muted);
   border-bottom: 8px solid var(--border);
-  padding: 80px 20px;
+  padding: 120px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.timeline { position: relative; max-width: 800px; margin: 0 auto; }
-.timeline::before { content: ""; position: absolute; left: 30px; top: 0; bottom: 0; width: 4px; background: var(--border); }
-.timeline-item { position: relative; margin-bottom: 60px; padding-left: 80px; }
-.timeline-dot { position: absolute; left: 18px; top: 0; width: 28px; height: 28px; background: var(--primary); border: 4px solid var(--border); box-shadow: 4px 4px 0px var(--border); border-radius: 0; }
-.timeline-content { background: white; padding: 30px; border: 4px solid var(--border); border-radius: 0; box-shadow: 8px 8px 0px var(--border); transition: all 0.1s ease; }
-.timeline-content:hover { transform: translate(-4px, -4px); box-shadow: 12px 12px 0px var(--border); background: var(--secondary); }
-.job-title { font-size: 1.8rem; color: var(--text-primary); margin-bottom: 12px; font-weight: 900; text-transform: uppercase; background: var(--secondary); display: inline-block; padding: 4px 8px; border: 4px solid var(--border); box-shadow: 4px 4px 0px var(--border); }
-.company { background: var(--primary); color: white; padding: 4px 12px; border: 4px solid var(--border); font-size: 1.1rem; margin-bottom: 16px; font-weight: 900; display: inline-block; box-shadow: 2px 2px 0px var(--border); }
-.period { color: var(--text-primary); font-size: 1rem; font-weight: 900; margin-left: 12px; text-transform: uppercase; }
-.responsibilities { margin-top: 20px; list-style: none; }
-.responsibilities li { position: relative; padding-left: 24px; margin-bottom: 12px; color: var(--text-primary); font-weight: 700; line-height: 1.6; }
-.responsibilities li::before { content: "■"; position: absolute; left: 0; color: var(--border); font-weight: 900; }
-@media (max-width: 768px) { .timeline::before { left: 20px; } .timeline-item { padding-left: 60px; } .timeline-dot { left: 8px; } }
+/* Stripe pattern */
+.education::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0,0,0,0.05) 10px,
+    rgba(0,0,0,0.05) 20px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dark .education::after {
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255,255,255,0.05) 10px,
+    rgba(255,255,255,0.05) 20px
+  );
+}
+
+.edu-ticket {
+  display: flex;
+  max-width: 900px;
+  width: 100%;
+  background: var(--card);
+  border: 8px solid var(--border);
+  box-shadow: 20px 20px 0px var(--border);
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 1;
+}
+
+.edu-ticket:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 28px 28px 0px var(--border);
+  z-index: 10;
+}
+
+.ticket-left {
+  flex: 1;
+  padding: 60px 50px;
+  border-right: 8px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: var(--background);
+}
+
+/* Half circles to make it look like a perforated ticket */
+.ticket-left::before,
+.ticket-left::after {
+  content: "";
+  position: absolute;
+  right: -24px;
+  width: 40px;
+  height: 40px;
+  background: var(--muted);
+  border: 8px solid var(--border);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.ticket-left::before {
+  top: -24px;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(-45deg);
+}
+
+.ticket-left::after {
+  bottom: -24px;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  transform: rotate(45deg);
+}
+
+.edu-badge {
+  display: inline-block;
+  background: var(--foreground);
+  color: var(--background);
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  align-self: flex-start;
+  margin-bottom: 25px;
+  box-shadow: 4px 4px 0px var(--primary);
+}
+
+.edu-degree {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  color: var(--foreground);
+  margin-bottom: 15px;
+  -webkit-text-stroke: 1px var(--foreground);
+}
+
+.edu-institution {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.edu-description {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--foreground);
+  line-height: 1.6;
+  border-left: 6px solid var(--secondary);
+  padding-left: 20px;
+}
+
+.ticket-right {
+  width: 280px;
+  background: var(--secondary);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.edu-year {
+  font-size: 4rem;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+  -webkit-text-stroke: 1px #000;
+}
+
+.edu-divider {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #000;
+  margin: 10px 0;
+  padding: 5px 15px;
+  border: 4px solid #000;
+  border-radius: 50px;
+}
+
+.stamp {
+  border: 6px solid var(--primary);
+  color: var(--primary);
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 10px 15px;
+  transform: rotate(-15deg);
+  display: inline-block;
+  margin-top: 30px;
+  letter-spacing: 2px;
+  box-shadow: 4px 4px 0px var(--primary);
+  background: transparent;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .edu-ticket {
+    flex-direction: column;
+  }
+  .ticket-left {
+    border-right: none;
+    border-bottom: 8px dashed var(--border);
+    padding: 40px 20px;
+  }
+  .ticket-left::before,
+  .ticket-left::after {
+    display: none;
+  }
+  .ticket-right {
+    width: 100%;
+    padding: 50px 20px;
+  }
+  .edu-degree {
+    font-size: 2.2rem;
+  }
+  .edu-year {
+    font-size: 3.5rem;
+  }
+}

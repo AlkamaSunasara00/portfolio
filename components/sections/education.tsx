@@ -11,15 +11,19 @@ const education = {
 export default function Education() {
   return (
     <section id="education" className="education section">
-      <div className="container">
-        <h2 className="section-title">Education</h2>
-
-        <div className="education-content">
-          <div className="education-card">
-            <h3 className="degree">{education.degree}</h3>
-            <p className="institution">{education.institution}</p>
-            <p className="period">{education.period}</p>
-            <p className="description">{education.description}</p>
+      <div className="container" style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className="edu-ticket">
+          <div className="ticket-left">
+            <div className="edu-badge">Education</div>
+            <h3 className="edu-degree">{education.degree}</h3>
+            <p className="edu-institution">{education.institution}</p>
+            <p className="edu-description">{education.description}</p>
+          </div>
+          <div className="ticket-right">
+            <div className="edu-year">2024</div>
+            <div className="edu-divider">TO</div>
+            <div className="edu-year">2027</div>
+            <div className="stamp">IN PROGRESS</div>
           </div>
         </div>
       </div>
