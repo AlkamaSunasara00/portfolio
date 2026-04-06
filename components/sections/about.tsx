@@ -1,5 +1,6 @@
+"use client"
 import "./about.css"
-import Lanyard from "../ui/lanyard"
+import ProfileCard from "../ui/ProfileCard"
 
 export default function About() {
   return (
@@ -8,8 +9,23 @@ export default function About() {
         <h2 className="section-title">About Me</h2>
 
         <div className="about-content">
-          <div className="about-image">
-            <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} />
+          <div className="about-image flex items-center justify-center">
+            <ProfileCard
+              name="Alkama Sunasara"
+              title="Software Engineer"
+              handle="@alkamasunasara"
+              status="Online"
+              contactText="Contact Me"
+              avatarUrl="/developer-headshot-bw.jpg"
+              showUserInfo={false}
+              enableTilt={true}
+              enableMobileTilt={false}
+              onContactClick={() => console.log('Contact clicked')}
+              behindGlowColor="rgba(115, 160, 155, 0.47)"
+              iconUrl="https://placehold.co/100x100/0e152e/white?text=</>"
+              behindGlowEnabled={true}
+              innerGradient="linear-gradient(145deg,#60496e8c 0%,#71C4FF44 50%)"
+            />
           </div>
 
           <div className="about-text">
