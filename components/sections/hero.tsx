@@ -14,19 +14,6 @@ export default function Hero() {
     }
   }
 
-  const floatingSkills = [
-    { name: "React.js", style: "skill-1 bg-neo-accent text-white" },
-    { name: "Node.js", style: "skill-2 bg-neo-secondary text-black" },
-    { name: "TypeScript", style: "skill-3 bg-neo-muted text-black" },
-    { name: "MongoDB", style: "skill-4 bg-white text-black" },
-    { name: "Express", style: "skill-5 bg-neo-accent text-white" },
-    { name: "HTML5", style: "skill-6 bg-neo-secondary text-black" },
-    { name: "CSS3", style: "skill-7 bg-white text-black" },
-    { name: "SQL", style: "skill-8 bg-neo-muted text-black" },
-    { name: "Next.js", style: "skill-9 bg-neo-accent text-white" },
-    { name: "Tailwind", style: "skill-10 bg-neo-secondary text-black" },
-  ];
-
   return (
     <section id="hero" className="w-full min-h-screen flex items-center pt-32 pb-12 overflow-hidden border-b-8 border-black">
       <div className="container mx-auto px-4 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10 w-full h-full">
@@ -74,14 +61,54 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Side - Floating Stickers Canvas */}
-        <div className="relative h-[500px] lg:h-[700px] w-full mt-12 lg:mt-0 right-side-container hidden sm:block">
-           {floatingSkills.map((skill, index) => (
-             <div key={index} className={`floating-skill ${skill.style}`}>
-                {skill.name}
-             </div>
-           ))}
+        {/* Right Side - Brutalist Code Terminal */}
+        <div className="relative h-[380px] sm:h-[450px] lg:h-[550px] w-full mt-12 lg:mt-0 flex items-center justify-center pointer-events-none group perspective-1000">
+           
+           <div className="w-full max-w-[500px] bg-white border-[4px] sm:border-8 border-black shadow-[10px_10px_0px_0px_var(--primary)] sm:shadow-[20px_20px_0px_0px_var(--primary)] flex flex-col relative z-10 transition-transform duration-500 sm:rotate-y-[-10deg] sm:rotate-x-[5deg] group-hover:rotate-y-0 group-hover:rotate-x-0 group-hover:-translate-y-4">
+              {/* Top Bar */}
+              <div className="flex justify-between items-center bg-neo-muted border-b-[4px] sm:border-b-8 border-black p-3 sm:p-4">
+                <div className="flex gap-2">
+                  <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full border-[3px] border-black bg-neo-accent"></span>
+                  <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full border-[3px] border-black bg-neo-secondary"></span>
+                  <span className="w-4 h-4 sm:w-5 sm:h-5 rounded-full border-[3px] border-black bg-[#4ADE80]"></span>
+                </div>
+                <span className="font-mono font-black uppercase text-xs sm:text-sm tracking-widest">alkama.exe</span>
+              </div>
+              
+              {/* Terminal Body */}
+              <div className="p-4 sm:p-6 font-mono text-[11px] sm:text-[14px] font-bold bg-[#1A1A1A] text-[#E5E5E5] h-full flex flex-col gap-1.5 relative overflow-hidden text-left leading-relaxed break-words whitespace-pre-wrap">
+                <div className="text-[#4ADE80] mb-2 font-normal break-all">
+                  <span className="text-white">alkama@server:~$</span> {"curl -X GET https://api.alkama.dev/status"}
+                </div>
+                <div className="text-gray-500 text-[10px] sm:text-xs mb-2">{'HTTP/2 200 OK'}</div>
+                <div>{'{'}</div>
+                <div className="pl-3 sm:pl-6"><span className="text-[#FF6B6B]">"system_status"</span>: <span className="text-[#4ADE80]">"ONLINE"</span>,</div>
+                <div className="pl-3 sm:pl-6"><span className="text-[#FF6B6B]">"uptime_nodes"</span>: <span className="text-[#FFD93D]">"Stable"</span>,</div>
+                <div className="pl-3 sm:pl-6"><span className="text-[#FF6B6B]">"core_competencies"</span>: [</div>
+                <div className="pl-6 sm:pl-12 text-[#4ADE80]">"Complex API Architecture",</div>
+                <div className="pl-6 sm:pl-12 text-[#4ADE80]">"High-Performance UI/UX",</div>
+                <div className="pl-6 sm:pl-12 text-[#4ADE80]">"Database Optimization"</div>
+                <div className="pl-3 sm:pl-6">],</div>
+                <div className="pl-3 sm:pl-6"><span className="text-[#FF6B6B]">"coffee_level"</span>: <span className="text-[#FFD93D]">100</span>,</div>
+                <div className="pl-3 sm:pl-6"><span className="text-[#FF6B6B]">"current_task"</span>: <span className="text-[#4ADE80]">"Scaling solutions..."</span></div>
+                <div>{'}'}</div>
+                
+                <div className="mt-4 flex items-center gap-2 font-normal">
+                  <span className="text-white">alkama@server:~$</span> <span className="w-2 h-4 sm:w-2.5 sm:h-5 bg-white inline-block animate-[pulse_1s_infinite]"></span>
+                </div>
+              </div>
+           </div>
+
+           {/* Decorative Tags */}
+           <div className="absolute top-12 right-2 sm:top-32 sm:right-4 lg:-right-4 bg-neo-secondary border-[3px] sm:border-4 border-black px-2 sm:px-4 py-1 sm:py-2 font-black uppercase text-sm sm:text-xl shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rotate-6 z-20">
+             100% Reliable
+           </div>
+           
+           <div className="absolute bottom-8 left-76 sm:bottom-10 sm:left-86 lg:left-96 bg-neo-accent text-white border-[3px] sm:border-4 border-black px-4 sm:px-6 py-2 sm:py-3 font-black uppercase text-sm sm:text-xl shadow-[4px_4px_0px_#000] sm:shadow-[8px_8px_0px_#000] -rotate-6 z-20">
+             Hire Me
+           </div>
         </div>
+
       </div>
     </section>
   )

@@ -65,6 +65,7 @@
 import { useEffect, useState } from "react"
 import "./projects.css"
 import { RxCross2 } from "react-icons/rx"
+import { ExternalLink, Github, Info } from "lucide-react"
 
 const projects = [
   {
@@ -191,40 +192,65 @@ export default function Projects() {
   return (
     <section id="projects" className="projects section">
       <div className="container">
-        <h2 className="section-title">Featured Projects</h2>
+        <div className="projects-header">
+          <h2 className="section-title brutal-title">Featured Work</h2>
+          <div className="brutal-badge">Latest.Exe</div>
+        </div>
 
         <div className="projects-grid">
           {projects.map((project, index) => (
             <div key={index} className="project-card">
-              <div className="project-image">
-                <img src={`/${project.thumbnail}`} alt={project.title} />
+              <div className="card-top-bar">
+                <div className="dots">
+                  <span className="dot red"></span>
+                  <span className="dot yellow"></span>
+                  <span className="dot green"></span>
+                </div>
+                <div className="bar-title">{project.title.toLowerCase().replace(/\s+/g, "_")}.exe</div>
               </div>
+
+              <div className="project-image-wrapper">
+                <div className="project-image">
+                  <img src={`/${project.thumbnail}`} alt={project.title} />
+                </div>
+                <div className="project-overlay">
+                  <button className="btn-primary brutal-btn popup-btn" onClick={() => setSelectedProject(project)}>
+                    View Details
+                  </button>
+                </div>
+              </div>
+
               <div className="project-content">
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
 
-                <div className="tech-stack">
-                  {project.technologies.map((tech, i) => (
-                    <span key={i} className="tech-badge">{tech}</span>
-                  ))}
+                <div className="tech-stack scroll-container">
+                  <div className="scroll-content">
+                    {project.technologies.map((tech, i) => (
+                      <span key={i} className="tech-badge">{tech}</span>
+                    ))}
+                    {/* Duplicate for infinite effect */}
+                    {project.technologies.map((tech, i) => (
+                      <span key={`dup-${i}`} className="tech-badge" aria-hidden="true">{tech}</span>
+                    ))}
+                  </div>
                 </div>
 
                 <div className="project-links">
                   {project.liveUrl && project.liveUrl !== "#" && (
                     <a href={project.liveUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">
-                      Live Demo
+                      <ExternalLink size={20} /> Live
                     </a>
                   )}
                   {project.githubUrl && project.githubUrl !== "#" && (
                     <a href={project.githubUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer">
-                      View Code
+                      <Github size={20} /> Code
                     </a>
                   )}
                   <button className="btn-more" onClick={() => setSelectedProject(project)}>
-                    More Details
+                    <Info size={20} /> More Details
                   </button>
                 </div>
-
               </div>
             </div>
           ))}
@@ -234,85 +260,109 @@ export default function Projects() {
         {selectedProject && (
           <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
             <div className="modal-content fullscreen" onClick={(e) => e.stopPropagation()}>
-              <button className="btn-close" onClick={() => setSelectedProject(null)}>
-                <RxCross2 />
-              </button>
-
-              {/* Left Section */}
-              <div className="modal-left">
-                <h2 className="modal-title">{selectedProject.title}</h2>
-                <p className="modal-description">{selectedProject.details}</p>
-
-                <div className="modal-meta">
-                  <p><strong>Role:</strong> {selectedProject.role}</p>
-                  <p><strong>Team Size:</strong> {selectedProject.teamSize}</p>
-                  <p><strong>Duration:</strong> {selectedProject.duration}</p>
+              
+              <div className="modal-top-bar">
+                <div className="dots">
+                  <span className="dot red" onClick={() => setSelectedProject(null)}></span>
+                  <span className="dot yellow" onClick={() => setSelectedProject(null)}></span>
+                  <span className="dot green"></span>
                 </div>
-
-                <div className="modal-subsection">
-                  <h4>Responsibilities</h4>
-                  <ul>
-                    {selectedProject.responsibilities.map((task: string, i: number) => (
-                      <li key={i}>{task}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="modal-subsection">
-                  <h4>Challenges</h4>
-                  <p>{selectedProject.challenges}</p>
-                </div>
-
-                <div className="modal-subsection">
-                  <h4>Outcomes</h4>
-                  <p>{selectedProject.outcomes}</p>
-                </div>
-
-                <div className="modal-subsection">
-                  <h4>Future Scope</h4>
-                  <p>{selectedProject.futureScope}</p>
-                </div>
-
-                <div className="modal-tech">
-                  {selectedProject.technologies.map((tech: string, i: number) => (
-                    <span key={i} className="tech-badge">{tech}</span>
-                  ))}
-                </div>
-
-                <div className="modal-links">
-                  {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
-                    <a href={selectedProject.liveUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">
-                      Live Demo
-                    </a>
-                  )}
-                  {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
-                    <a href={selectedProject.githubUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer">
-                      View Code
-                    </a>
-                  )}
-                </div>
-
+                <div className="bar-title">SYSTEM_VIEWER // {selectedProject.title.toUpperCase()}</div>
+                <button className="btn-close-modal" onClick={() => setSelectedProject(null)}>
+                  <RxCross2 />
+                </button>
               </div>
 
-              {/* Right Section (Images) */}
-              <div className="modal-right">
-                <div className="modal-images">
-                  {selectedProject.images.map((section: any, idx: number) => (
-                    <div key={idx} className="image-section">
-                      <h4 className="image-title">{section.title}</h4>
-                      <div className="image-grid">
-                        {section.items.map((img: string, i: number) => (
-                          <img
-                            key={i}
-                            src={`/${img}`}
-                            alt={`${section.title} ${i + 1}`}
-                            className="modal-img"
-                            onClick={() => setLightboxImage(`/${img}`)} // ✅ open big view
-                          />
-                        ))}
-                      </div>
+              <div className="modal-body">
+                {/* Left Section */}
+                <div className="modal-left">
+                  <div className="modal-header-box">
+                    <h2 className="modal-title">{selectedProject.title}</h2>
+                    <div className="brutal-tag">PROJECT_DETAILS.TXT</div>
+                  </div>
+                  
+                  <p className="modal-description">{selectedProject.details}</p>
+
+                  <div className="modal-meta-grid">
+                    <div className="meta-box">
+                      <span className="meta-label">Role</span>
+                      <span className="meta-value">{selectedProject.role}</span>
                     </div>
-                  ))}
+                    <div className="meta-box">
+                      <span className="meta-label">Team Size</span>
+                      <span className="meta-value">{selectedProject.teamSize}</span>
+                    </div>
+                    <div className="meta-box">
+                      <span className="meta-label">Duration</span>
+                      <span className="meta-value">{selectedProject.duration}</span>
+                    </div>
+                  </div>
+
+                  <div className="modal-subsection">
+                    <h4>Responsibilities</h4>
+                    <ul>
+                      {selectedProject.responsibilities.map((task: string, i: number) => (
+                        <li key={i}>{task}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="modal-subsection">
+                    <h4>Challenges</h4>
+                    <p>{selectedProject.challenges}</p>
+                  </div>
+
+                  <div className="modal-subsection">
+                    <h4>Outcomes</h4>
+                    <p>{selectedProject.outcomes}</p>
+                  </div>
+
+                  <div className="modal-subsection">
+                    <h4>Future Scope</h4>
+                    <p>{selectedProject.futureScope}</p>
+                  </div>
+
+                  <div className="modal-tech">
+                    {selectedProject.technologies.map((tech: string, i: number) => (
+                      <span key={i} className="tech-badge">{tech}</span>
+                    ))}
+                  </div>
+
+                  <div className="modal-links">
+                    {selectedProject.liveUrl && selectedProject.liveUrl !== "#" && (
+                      <a href={selectedProject.liveUrl} className="btn-primary" target="_blank" rel="noopener noreferrer">
+                        <ExternalLink size={20} /> Live Demo
+                      </a>
+                    )}
+                    {selectedProject.githubUrl && selectedProject.githubUrl !== "#" && (
+                      <a href={selectedProject.githubUrl} className="btn-secondary" target="_blank" rel="noopener noreferrer">
+                        <Github size={20} /> View Code
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Right Section (Images) */}
+                <div className="modal-right">
+                  <div className="modal-images">
+                    {selectedProject.images.map((section: any, idx: number) => (
+                      <div key={idx} className="image-section">
+                        <h4 className="image-title">[{section.title}]</h4>
+                        <div className="image-grid">
+                          {section.items.map((img: string, i: number) => (
+                            <div className="img-wrapper" key={i}>
+                              <img
+                                src={`/${img}`}
+                                alt={`${section.title} ${i + 1}`}
+                                className="modal-img"
+                                onClick={() => setLightboxImage(`/${img}`)}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -322,10 +372,20 @@ export default function Projects() {
         {/* Lightbox Overlay */}
         {lightboxImage && (
           <div className="lightbox-overlay" onClick={() => setLightboxImage(null)}>
-            <img src={lightboxImage} alt="Preview" />
-            <button className="btn-close" onClick={() => setLightboxImage(null)}>
-              <RxCross2 />
-            </button>
+            <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
+              <div className="card-top-bar">
+                <div className="dots">
+                  <span className="dot red" onClick={() => setLightboxImage(null)}></span>
+                  <span className="dot yellow"></span>
+                  <span className="dot green"></span>
+                </div>
+                <div className="bar-title">IMAGE_VIEWER.EXE</div>
+                <button className="btn-close-modal" onClick={() => setLightboxImage(null)}>
+                  <RxCross2 />
+                </button>
+              </div>
+              <img src={lightboxImage} alt="Preview" />
+            </div>
           </div>
         )}
       </div>

@@ -1,55 +1,12 @@
-.right-side-container {
-  position: relative;
-  width: 100%;
+/* Hero Section Custom Styles */
+.perspective-1000 {
+  perspective: 1000px;
 }
 
-.floating-skill {
-  position: absolute;
-  padding: 8px 16px;
-  border-radius: 0;
-  border: 4px solid var(--border);
-  font-weight: 900;
-  text-transform: uppercase;
-  font-size: 1.1rem;
-  box-shadow: 4px 4px 0px var(--border);
-  cursor: pointer;
-  transition: all 0.1s ease;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+.rotate-y-\[-10deg\] {
+  transform: rotateY(-10deg) rotateX(5deg);
 }
 
-.floating-skill:hover {
-  transform: translate(-4px, -4px) scale(1.1) !important;
-  box-shadow: 8px 8px 0px var(--border);
-  z-index: 50 !important;
-}
-
-/* Hard positions and distinct rotations for sticker feel */
-.skill-1 { top: 10%; right: 10%; animation: floatA 5s infinite; transform: rotate(-5deg); z-index: 5; }
-.skill-2 { top: 25%; left: 10%; animation: floatB 6s infinite; transform: rotate(3deg); z-index: 4; }
-.skill-3 { top: 40%; right: 20%; animation: floatA 4s infinite; transform: rotate(-2deg); z-index: 3; }
-.skill-4 { top: 55%; left: 5%; animation: floatB 5.5s infinite; transform: rotate(6deg); z-index: 6; }
-.skill-5 { top: 70%; right: 15%; animation: floatA 6s infinite; transform: rotate(-4deg); z-index: 7; }
-.skill-6 { top: 15%; left: 40%; animation: floatB 4.5s infinite; transform: rotate(2deg); z-index: 2; }
-.skill-7 { top: 85%; left: 25%; animation: floatA 5s infinite; transform: rotate(-1deg); z-index: 5; }
-.skill-8 { top: 85%; right: 35%; animation: floatB 4s infinite; transform: rotate(4deg); z-index: 3; }
-.skill-9 { top: 35%; left: 40%; animation: floatA 5.5s infinite; transform: rotate(-3deg); z-index: 8; }
-.skill-10 { top: 55%; right: 50%; animation: floatB 4.8s infinite; transform: rotate(5deg); z-index: 4; }
-
-@keyframes floatA {
-  0%, 100% { margin-top: 0px; }
-  50% { margin-top: -20px; }
-}
-
-@keyframes floatB {
-  0%, 100% { margin-top: 0px; }
-  50% { margin-top: 20px; }
-}
-
-@media (max-width: 1024px) {
-  .floating-skill {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
+.group:hover .group-hover\:rotate-y-0 {
+  transform: rotateY(0deg) rotateX(0deg) translateY(-16px);
 }
