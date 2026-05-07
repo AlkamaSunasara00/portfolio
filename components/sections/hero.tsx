@@ -103,10 +103,6 @@ export default function Hero() {
            <div className="absolute top-12 right-2 sm:top-32 sm:right-4 lg:-right-4 bg-neo-secondary border-[3px] sm:border-4 border-black px-2 sm:px-4 py-1 sm:py-2 font-black uppercase text-sm sm:text-xl shadow-[4px_4px_0px_#000] sm:shadow-[6px_6px_0px_#000] rotate-6 z-20">
              100% Reliable
            </div>
-           
-           <div className="absolute bottom-8 left-76 sm:bottom-10 sm:left-86 lg:left-96 bg-neo-accent text-white border-[3px] sm:border-4 border-black px-4 sm:px-6 py-2 sm:py-3 font-black uppercase text-sm sm:text-xl shadow-[4px_4px_0px_#000] sm:shadow-[8px_8px_0px_#000] -rotate-6 z-20">
-             Hire Me
-           </div>
         </div>
 
       </div>
