@@ -11,7 +11,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-top">
         <div className="footer-left">
-          <h2 className="footer-huge-logo">ALKAMA.<br/>STUDIO</h2>
+          <h2 className="footer-huge-logo">ALKAMA.<br/>DEV</h2>
           <p className="footer-bio">
             Full Stack Developer specializing in React.js, Node.js, and scalable brutalist web solutions.
             Building things that don't just work, but scream for attention.

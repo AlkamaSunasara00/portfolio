@@ -68,6 +68,116 @@ import { RxCross2 } from "react-icons/rx"
 import { ExternalLink, Github, Info } from "lucide-react"
 
 const projects = [
+{
+  title: "Glowison Graphics",
+  thumbnail: "glowison-thumbnail.png",
+
+  description:
+    "A full-stack e-commerce catalog and digital storefront built for a custom laser-cutting business. It features dynamic product browsing, a persistent local cart, WhatsApp-integrated checkout, and a secure admin dashboard for content management.",
+
+  details:
+    "Glowison Graphics is a digital storefront built for a manufacturing business specializing in custom laser-cut sign boards, acrylic name plates, and personalized decor. Rather than a traditional e-commerce payment flow, the platform allows customers to browse products, add them to a local storage-based cart, and seamlessly check out via a WhatsApp integration that generates a fully formatted order summary. I also developed a comprehensive admin dashboard to allow the business to manage categories, products, hero slides, and gallery items dynamically. The frontend is highly optimized for SEO and utilizes modern animations for a premium user experience.",
+
+  challenges:
+    "The primary challenge was designing a robust local storage cart system that accurately handles variable product attributes (colors, sizes) and formats complex order data into a clean WhatsApp message. Additionally, building a seamless admin experience with Prisma and PostgreSQL to handle complex relational data (categories, subcategories, products, and images) required careful database architecture and state management.",
+
+  outcomes:
+    "Delivered a fast, SEO-optimized, and production-ready catalog website that drives direct customer inquiries to the business's WhatsApp. The custom admin dashboard empowers the business owners to maintain their digital catalog independently without needing to touch the codebase.",
+
+  futureScope:
+    "Future enhancements include integrating an online payment gateway (like Razorpay) for direct online orders, adding a user authentication system for customer order history, and implementing an automated order tracking system.",
+
+  images: [
+    // { title: "Homepage", items: ["glowison-homepage.png"] },
+    // { title: "Product Listing", items: ["glowison-products.png"] },
+    // { title: "Product Details", items: ["glowison-product-details.png"] },
+    // { title: "Cart & Checkout", items: ["glowison-cart.png"] },
+    // { title: "WhatsApp Integration", items: ["glowison-whatsapp.png"] },
+    // { title: "Admin Dashboard", items: ["glowison-admin.png"] },
+    // { title: "Category Management", items: ["glowison-admin-categories.png"] }
+  ],
+
+  technologies: [
+    "Next.js",
+    "React",
+    "PostgreSQL",
+    "Prisma",
+    "TailwindCSS",
+    "Framer Motion",
+    "Supabase"
+  ],
+
+  duration: "2024",
+  role: "Full Stack Developer",
+  teamSize: 1,
+
+  responsibilities: [
+    "Developed the frontend catalog using Next.js and React",
+    "Built a persistent local storage cart system for seamless browsing",
+    "Integrated a custom WhatsApp checkout flow that generates formatted order summaries",
+    "Designed the PostgreSQL database architecture using Prisma ORM",
+    "Developed a secure admin dashboard for managing products, categories, and site content",
+    "Implemented modern UI animations using Framer Motion and Three.js",
+    "Optimized the platform for local SEO and integrated Google Analytics",
+    "Handled image uploads and delivery optimizations"
+  ],
+
+  liveUrl: "https://www.glowison.in",
+},
+
+  // {
+  //   title: "ERP Management System",
+  //   thumbnail: "erp-thumbnail.png",
+
+  //   description:
+  //     "A custom ERP platform designed to centralize business operations, manage organizational data, and streamline day-to-day workflows through a unified management system.",
+
+  //   details:
+  //     "The ERP system is a custom business management platform built to bring multiple operational processes into a centralized application. It provides structured modules for managing business data, users, workflows, and day-to-day operations while reducing dependency on disconnected tools. The system was designed with a modular architecture so additional business functions can be introduced without restructuring the entire application.",
+
+  //   challenges:
+  //     "The biggest challenge was designing a scalable system around multiple interconnected business modules while maintaining consistent permissions, data relationships, and user workflows. Managing complex forms, role-based access, interconnected records, and maintaining a clean architecture across modules required careful planning.",
+
+  //   outcomes:
+  //     "Created a centralized business management system that improves data organization, reduces repetitive manual processes, and provides a structured foundation for managing day-to-day operations from a single platform.",
+
+  //   futureScope:
+  //     "Future improvements can include advanced reporting and analytics, automated notifications, workflow automation, audit logs, integrations with accounting and payment systems, and mobile access.",
+
+  //   images: [
+  //     { title: "Dashboard", items: ["erp-dashboard.png"] },
+  //     { title: "Management Module", items: ["erp-management.png"] },
+  //     { title: "Data Management", items: ["erp-data-management.png"] },
+  //     { title: "User Management", items: ["erp-users.png"] },
+  //     { title: "Reports", items: ["erp-reports.png"] },
+  //   ],
+
+  //   technologies: [
+  //     "React",
+  //     "Node.js",
+  //     "Express",
+  //     "MySQL",
+  //     "REST APIs",
+  //     "TailwindCSS"
+  //   ],
+
+  //   duration: "2025 – 2026",
+  //   role: "Full Stack Developer",
+  //   teamSize: 1,
+
+  //   responsibilities: [
+  //     "Designed and developed modular ERP interfaces",
+  //     "Built backend APIs and database integrations",
+  //     "Implemented CRUD workflows across business modules",
+  //     "Designed relational database structures",
+  //     "Implemented role-based access and user management",
+  //     "Built reusable forms, tables, and management components",
+  //     "Integrated frontend and backend workflows",
+  //     "Focused on scalability, maintainability, and responsive UI"
+  //   ],
+
+  //   liveUrl: "#",
+  // },
   {
     title: "Sheetal Sweets",
     thumbnail: "sheetal-thumbnail.png",
@@ -258,9 +368,8 @@ export default function Projects() {
 
         {/* Full Screen Modal */}
         {selectedProject && (
-          <div className="modal-overlay" onClick={() => setSelectedProject(null)}>
-            <div className="modal-content fullscreen" onClick={(e) => e.stopPropagation()}>
-              
+            <div className="modal-content fullscreen">
+
               <div className="modal-top-bar">
                 <div className="dots">
                   <span className="dot red" onClick={() => setSelectedProject(null)}></span>
@@ -273,14 +382,14 @@ export default function Projects() {
                 </button>
               </div>
 
-              <div className="modal-body">
+              <div className={`modal-body ${selectedProject.images && selectedProject.images.length > 0 ? '' : 'no-images'}`}>
                 {/* Left Section */}
                 <div className="modal-left">
                   <div className="modal-header-box">
                     <h2 className="modal-title">{selectedProject.title}</h2>
                     <div className="brutal-tag">PROJECT_DETAILS.TXT</div>
                   </div>
-                  
+
                   <p className="modal-description">{selectedProject.details}</p>
 
                   <div className="modal-meta-grid">
@@ -343,7 +452,8 @@ export default function Projects() {
                 </div>
 
                 {/* Right Section (Images) */}
-                <div className="modal-right">
+                {selectedProject.images && selectedProject.images.length > 0 && (
+                  <div className="modal-right">
                   <div className="modal-images">
                     {selectedProject.images.map((section: any, idx: number) => (
                       <div key={idx} className="image-section">
@@ -364,9 +474,9 @@ export default function Projects() {
                     ))}
                   </div>
                 </div>
+                )}
               </div>
             </div>
-          </div>
         )}
 
         {/* Lightbox Overlay */}
