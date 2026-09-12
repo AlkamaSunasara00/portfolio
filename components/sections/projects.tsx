@@ -334,16 +334,10 @@ export default function Projects() {
                 <h3 className="project-title">{project.title}</h3>
                 <p className="project-description">{project.description}</p>
 
-                <div className="tech-stack scroll-container">
-                  <div className="scroll-content">
-                    {project.technologies.map((tech, i) => (
-                      <span key={i} className="tech-badge">{tech}</span>
-                    ))}
-                    {/* Duplicate for infinite effect */}
-                    {project.technologies.map((tech, i) => (
-                      <span key={`dup-${i}`} className="tech-badge" aria-hidden="true">{tech}</span>
-                    ))}
-                  </div>
+                <div className="tech-stack">
+                  {project.technologies.map((tech: string, i: number) => (
+                    <span key={i} className="tech-badge">{tech}</span>
+                  ))}
                 </div>
 
                 <div className="project-links">
