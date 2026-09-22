@@ -1,66 +1,3 @@
-// import "./projects.css"
-
-// const projects = [
-//   {
-//     title: "ZepX",
-//     description:
-//       "A modern e-commerce platform built with React and Node.js, featuring real-time inventory management and secure payment processing.",
-//     image: "zepxThumbnail-CZzajLvP.png",
-//     technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-//     liveUrl: "#",
-//     githubUrl: "#",
-//   },
-// ]
-
-// export default function Projects() {
-//   return (
-//     <section id="projects" className="projects section">
-//       <div className="container">
-//         <h2 className="section-title">Featured Projects</h2>
-
-//         <div className="projects-grid">
-//           {projects.map((project, index) => (
-//             <div key={index} className="project-card">
-//               <div className="project-image">
-//                 <img
-//                   src={project.image || "/placeholder.svg?height=200&width=400&query=project screenshot"}
-//                   alt={project.title}
-//                 />
-//               </div>
-
-//               <div className="project-content">
-//                 <h3 className="project-title">{project.title}</h3>
-//                 <p className="project-description">{project.description}</p>
-
-//                 <div className="tech-stack">
-//                   {project.technologies.map((tech, techIndex) => (
-//                     <span key={techIndex} className="tech-badge">
-//                       {tech}
-//                     </span>
-//                   ))}
-//                 </div>
-
-//                 <div className="project-links">
-//                   <a href={project.liveUrl} className="btn-primary">
-//                     Live Demo
-//                   </a>
-//                   <a href={project.githubUrl} className="btn-secondary">
-//                     View Code
-//                   </a>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   )
-// }
-
-
-
-
-
 "use client"
 import { useEffect, useState } from "react"
 import "./projects.css"
@@ -68,116 +5,54 @@ import { RxCross2 } from "react-icons/rx"
 import { ExternalLink, Github, Info } from "lucide-react"
 
 const projects = [
-{
-  title: "Glowison Graphics",
-  thumbnail: "glowison-thumbnail.png",
+  {
+    title: "Glowison Graphics",
+    thumbnail: "glowison-thumbnail.png",
 
-  description:
-    "A full-stack e-commerce catalog and digital storefront built for a custom laser-cutting business. It features dynamic product browsing, a persistent local cart, WhatsApp-integrated checkout, and a secure admin dashboard for content management.",
+    description:
+      "A full-stack e-commerce catalog and digital storefront built for a custom laser-cutting business. It features dynamic product browsing, a persistent local cart, WhatsApp-integrated checkout, and a secure admin dashboard for content management.",
 
-  details:
-    "Glowison Graphics is a digital storefront built for a manufacturing business specializing in custom laser-cut sign boards, acrylic name plates, and personalized decor. Rather than a traditional e-commerce payment flow, the platform allows customers to browse products, add them to a local storage-based cart, and seamlessly check out via a WhatsApp integration that generates a fully formatted order summary. I also developed a comprehensive admin dashboard to allow the business to manage categories, products, hero slides, and gallery items dynamically. The frontend is highly optimized for SEO and utilizes modern animations for a premium user experience.",
+    details:
+      "Glowison Graphics is a digital storefront built for a manufacturing business specializing in custom laser-cut sign boards, acrylic name plates, and personalized decor. Rather than a traditional e-commerce payment flow, the platform allows customers to browse products, add them to a local storage-based cart, and seamlessly check out via a WhatsApp integration that generates a fully formatted order summary. I also developed a comprehensive admin dashboard to allow the business to manage categories, products, hero slides, and gallery items dynamically. The frontend is highly optimized for SEO and utilizes modern animations for a premium user experience.",
 
-  challenges:
-    "The primary challenge was designing a robust local storage cart system that accurately handles variable product attributes (colors, sizes) and formats complex order data into a clean WhatsApp message. Additionally, building a seamless admin experience with Prisma and PostgreSQL to handle complex relational data (categories, subcategories, products, and images) required careful database architecture and state management.",
+    challenges:
+      "The primary challenge was designing a robust local storage cart system that accurately handles variable product attributes (colors, sizes) and formats complex order data into a clean WhatsApp message. Additionally, building a seamless admin experience with Prisma and PostgreSQL to handle complex relational data (categories, subcategories, products, and images) required careful database architecture and state management.",
 
-  outcomes:
-    "Delivered a fast, SEO-optimized, and production-ready catalog website that drives direct customer inquiries to the business's WhatsApp. The custom admin dashboard empowers the business owners to maintain their digital catalog independently without needing to touch the codebase.",
+    outcomes:
+      "Delivered a fast, SEO-optimized, and production-ready catalog website that drives direct customer inquiries to the business's WhatsApp. The custom admin dashboard empowers the business owners to maintain their digital catalog independently without needing to touch the codebase.",
 
-  futureScope:
-    "Future enhancements include integrating an online payment gateway (like Razorpay) for direct online orders, adding a user authentication system for customer order history, and implementing an automated order tracking system.",
+    futureScope:
+      "Future enhancements include integrating direct online payment processing, customer accounts for order history tracking, and automated inventory notifications.",
 
-  images: [
-    // { title: "Homepage", items: ["glowison-homepage.png"] },
-    // { title: "Product Listing", items: ["glowison-products.png"] },
-    // { title: "Product Details", items: ["glowison-product-details.png"] },
-    // { title: "Cart & Checkout", items: ["glowison-cart.png"] },
-    // { title: "WhatsApp Integration", items: ["glowison-whatsapp.png"] },
-    // { title: "Admin Dashboard", items: ["glowison-admin.png"] },
-    // { title: "Category Management", items: ["glowison-admin-categories.png"] }
-  ],
+    images: [],
 
-  technologies: [
-    "Next.js",
-    "React",
-    "PostgreSQL",
-    "Prisma",
-    "TailwindCSS",
-    "Framer Motion",
-    "Supabase"
-  ],
+    technologies: [
+      "Next.js",
+      "React",
+      "PostgreSQL",
+      "Prisma",
+      "TailwindCSS",
+      "Framer Motion",
+      "Supabase"
+    ],
 
-  duration: "2024",
-  role: "Full Stack Developer",
-  teamSize: 1,
+    duration: "2024",
+    role: "Full Stack Developer",
+    teamSize: 1,
 
-  responsibilities: [
-    "Developed the frontend catalog using Next.js and React",
-    "Built a persistent local storage cart system for seamless browsing",
-    "Integrated a custom WhatsApp checkout flow that generates formatted order summaries",
-    "Designed the PostgreSQL database architecture using Prisma ORM",
-    "Developed a secure admin dashboard for managing products, categories, and site content",
-    "Implemented modern UI animations using Framer Motion and Three.js",
-    "Optimized the platform for local SEO and integrated Google Analytics",
-    "Handled image uploads and delivery optimizations"
-  ],
+    responsibilities: [
+      "Developed the frontend catalog using Next.js and React",
+      "Built a persistent local storage cart system for seamless browsing",
+      "Integrated a custom WhatsApp checkout flow that generates formatted order summaries",
+      "Designed the PostgreSQL database architecture using Prisma ORM",
+      "Developed a secure admin dashboard for managing products, categories, and site content",
+      "Implemented modern UI animations using Framer Motion and Three.js",
+      "Optimized the platform for local SEO and integrated Google Analytics",
+      "Handled image uploads and delivery optimizations"
+    ],
 
-  liveUrl: "https://www.glowison.in",
-},
-
-  // {
-  //   title: "ERP Management System",
-  //   thumbnail: "erp-thumbnail.png",
-
-  //   description:
-  //     "A custom ERP platform designed to centralize business operations, manage organizational data, and streamline day-to-day workflows through a unified management system.",
-
-  //   details:
-  //     "The ERP system is a custom business management platform built to bring multiple operational processes into a centralized application. It provides structured modules for managing business data, users, workflows, and day-to-day operations while reducing dependency on disconnected tools. The system was designed with a modular architecture so additional business functions can be introduced without restructuring the entire application.",
-
-  //   challenges:
-  //     "The biggest challenge was designing a scalable system around multiple interconnected business modules while maintaining consistent permissions, data relationships, and user workflows. Managing complex forms, role-based access, interconnected records, and maintaining a clean architecture across modules required careful planning.",
-
-  //   outcomes:
-  //     "Created a centralized business management system that improves data organization, reduces repetitive manual processes, and provides a structured foundation for managing day-to-day operations from a single platform.",
-
-  //   futureScope:
-  //     "Future improvements can include advanced reporting and analytics, automated notifications, workflow automation, audit logs, integrations with accounting and payment systems, and mobile access.",
-
-  //   images: [
-  //     { title: "Dashboard", items: ["erp-dashboard.png"] },
-  //     { title: "Management Module", items: ["erp-management.png"] },
-  //     { title: "Data Management", items: ["erp-data-management.png"] },
-  //     { title: "User Management", items: ["erp-users.png"] },
-  //     { title: "Reports", items: ["erp-reports.png"] },
-  //   ],
-
-  //   technologies: [
-  //     "React",
-  //     "Node.js",
-  //     "Express",
-  //     "MySQL",
-  //     "REST APIs",
-  //     "TailwindCSS"
-  //   ],
-
-  //   duration: "2025 – 2026",
-  //   role: "Full Stack Developer",
-  //   teamSize: 1,
-
-  //   responsibilities: [
-  //     "Designed and developed modular ERP interfaces",
-  //     "Built backend APIs and database integrations",
-  //     "Implemented CRUD workflows across business modules",
-  //     "Designed relational database structures",
-  //     "Implemented role-based access and user management",
-  //     "Built reusable forms, tables, and management components",
-  //     "Integrated frontend and backend workflows",
-  //     "Focused on scalability, maintainability, and responsive UI"
-  //   ],
-
-  //   liveUrl: "#",
-  // },
+    liveUrl: "https://www.glowison.in",
+  },
   {
     title: "Sheetal Sweets",
     thumbnail: "sheetal-thumbnail.png",
@@ -195,7 +70,7 @@ const projects = [
       "Delivered a production-ready system that enhances business operations and digital visibility. Enabled non-technical users to manage website content independently, reducing dependency on developers and improving operational efficiency.",
 
     futureScope:
-      "😑😑😑😑",
+      "Planned updates include online order placement, customer feedback management, and automated order notifications.",
 
     images: [
       { title: "Homepage", items: ["sheetal-homepage.png"] },

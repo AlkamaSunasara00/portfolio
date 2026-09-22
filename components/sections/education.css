@@ -1,189 +1,317 @@
 .education {
-  background: var(--muted);
-  border-bottom: 8px solid var(--border);
-  padding: 120px 20px;
+  background: var(--background);
+  border-bottom: 6px solid #000000;
+  padding: 90px 20px;
   position: relative;
   overflow: hidden;
 }
 
-/* Stripe pattern */
+/* Texture Pattern */
 .education::after {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(0,0,0,0.05) 10px,
-    rgba(0,0,0,0.05) 20px
-  );
+  background-image: radial-gradient(#000000 1.5px, transparent 1.5px);
+  background-size: 36px 36px;
+  opacity: 0.08;
   pointer-events: none;
-  z-index: 0;
 }
 
-.dark .education::after {
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(255,255,255,0.05) 10px,
-    rgba(255,255,255,0.05) 20px
-  );
+.section-title {
+  text-align: center;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #000000;
+  background: #FFD93D;
+  border: 5px solid #000000;
+  display: inline-block;
+  padding: 8px 32px;
+  box-shadow: 8px 8px 0px 0px #000000;
+  transform: rotate(-1deg);
+  margin-bottom: 55px;
+}
+
+.edu-ticket-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
 }
 
 .edu-ticket {
   display: flex;
-  max-width: 900px;
+  max-width: 960px;
   width: 100%;
-  background: var(--card);
-  border: 8px solid var(--border);
-  box-shadow: 20px 20px 0px var(--border);
+  background: #FFFFFF;
+  border: 6px solid #000000;
+  box-shadow: 14px 14px 0px 0px #000000;
   position: relative;
-  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 1;
+  transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .edu-ticket:hover {
-  transform: translateY(-8px) rotate(-1deg);
-  box-shadow: 28px 28px 0px var(--border);
-  z-index: 10;
+  transform: translateY(-6px) rotate(-0.5deg);
+  box-shadow: 20px 20px 0px 0px #000000;
 }
 
+/* Left Perforated Ticket Area */
 .ticket-left {
   flex: 1;
-  padding: 60px 50px;
-  border-right: 8px dashed var(--border);
+  padding: 44px 38px;
+  border-right: 6px dashed #000000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  background: var(--background);
+  background: #FFFDF5;
 }
 
-/* Half circles to make it look like a perforated ticket */
+/* Half circle cut-outs for perforated ticket look */
 .ticket-left::before,
 .ticket-left::after {
   content: "";
   position: absolute;
-  right: -24px;
+  right: -23px;
   width: 40px;
   height: 40px;
-  background: var(--muted);
-  border: 8px solid var(--border);
+  background: var(--background, #FFFDF5);
+  border: 6px solid #000000;
   border-radius: 50%;
-  z-index: 2;
+  z-index: 10;
 }
 
 .ticket-left::before {
-  top: -24px;
-  border-top-color: transparent;
-  border-left-color: transparent;
-  transform: rotate(-45deg);
+  top: -23px;
 }
 
 .ticket-left::after {
-  bottom: -24px;
-  border-bottom-color: transparent;
-  border-left-color: transparent;
-  transform: rotate(45deg);
+  bottom: -23px;
 }
 
 .edu-badge {
   display: inline-block;
-  background: var(--foreground);
-  color: var(--background);
+  background: #000000;
+  color: #FFD93D;
   font-weight: 900;
   text-transform: uppercase;
-  padding: 10px 20px;
-  font-size: 1.2rem;
-  align-self: flex-start;
-  margin-bottom: 25px;
-  box-shadow: 4px 4px 0px var(--primary);
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-family: monospace;
+  border: 2.5px solid #000000;
+  box-shadow: 3px 3px 0px 0px #FF6B6B;
+  width: fit-content;
+  margin-bottom: 16px;
 }
 
 .edu-degree {
-  font-size: 2.8rem;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 900;
-  line-height: 1.1;
+  line-height: 1.15;
   text-transform: uppercase;
-  color: var(--foreground);
-  margin-bottom: 15px;
-  -webkit-text-stroke: 1px var(--foreground);
+  color: #000000;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
 }
 
-.edu-institution {
-  font-size: 1.5rem;
+.edu-institution-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFFFFF;
+  color: #000000;
+  border: 2.5px solid #000000;
+  padding: 6px 14px;
+  font-size: 0.95rem;
   font-weight: 800;
-  color: var(--primary);
-  margin-bottom: 25px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  box-shadow: 3px 3px 0px 0px #000000;
+  width: fit-content;
+  margin-bottom: 18px;
+}
+
+.bullet {
+  opacity: 0.4;
 }
 
 .edu-description {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--foreground);
+  color: #222222;
   line-height: 1.6;
-  border-left: 6px solid var(--secondary);
-  padding-left: 20px;
+  border-left: 5px solid #FFD93D;
+  padding-left: 16px;
+  margin-bottom: 24px;
 }
 
-.ticket-right {
-  width: 280px;
-  background: var(--secondary);
-  padding: 40px 20px;
+/* Circular Stickers Below Description */
+.ticket-circular-stickers {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 6px;
+}
+
+.circular-sticker {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 3.5px solid #000000;
+  box-shadow: 3.5px 3.5px 0px 0px #000000;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  user-select: none;
+}
+
+.circular-sticker:hover {
+  transform: scale(1.1) rotate(0deg) !important;
+  z-index: 10;
+}
+
+.sticker-yellow {
+  background: #FFD93D;
+  color: #000000;
+  transform: rotate(-6deg);
+}
+
+.sticker-coral {
+  background: #FF6B6B;
+  color: #FFFFFF;
+  transform: rotate(5deg);
+}
+
+.sticker-black {
+  background: #000000;
+  color: #FFD93D;
+  transform: rotate(-3deg);
+}
+
+.sticker-icon {
+  font-size: 1.35rem;
+  margin-bottom: 1px;
+}
+
+.sticker-label {
+  font-family: monospace;
+  font-size: 0.52rem;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Right Stub Area */
+.ticket-right {
+  width: 270px;
+  background: #FFD93D;
+  padding: 36px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   text-align: center;
   position: relative;
 }
 
-.edu-year {
-  font-size: 4rem;
+.stub-label {
+  font-family: monospace;
+  font-size: 0.75rem;
   font-weight: 900;
-  color: #000;
+  color: #000000;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  padding: 2px 12px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.edu-year {
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #000000;
   line-height: 1;
-  -webkit-text-stroke: 1px #000;
 }
 
 .edu-divider {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   font-weight: 900;
-  color: #000;
-  margin: 10px 0;
-  padding: 5px 15px;
-  border: 4px solid #000;
+  color: #000000;
+  margin: 6px 0;
+  padding: 3px 14px;
+  border: 3px solid #000000;
+  background: #FFFFFF;
   border-radius: 50px;
+  box-shadow: 2px 2px 0px 0px #000000;
 }
 
-.stamp {
-  border: 6px solid var(--primary);
-  color: var(--primary);
-  font-size: 1.8rem;
+/* Rectangular Progress Sticker */
+.progress-sticker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FF6B6B;
+  color: #FFFFFF;
+  border: 3.5px solid #000000;
+  padding: 6px 14px;
+  font-family: monospace;
+  font-size: 0.85rem;
   font-weight: 900;
   text-transform: uppercase;
-  padding: 10px 15px;
-  transform: rotate(-15deg);
-  display: inline-block;
-  margin-top: 30px;
-  letter-spacing: 2px;
-  box-shadow: 4px 4px 0px var(--primary);
-  background: transparent;
+  transform: rotate(-6deg);
+  box-shadow: 4px 4px 0px 0px #000000;
   white-space: nowrap;
+  margin: 18px 0 14px 0;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
 }
 
+.progress-sticker:hover {
+  transform: rotate(0deg) scale(1.06);
+}
+
+.sticker-dot {
+  width: 8px;
+  height: 8px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.5px #000000;
+  animation: pulseGlow 1.5s infinite ease-in-out;
+}
+
+/* Barcode Box */
+.ticket-barcode-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #FFFFFF;
+  border: 2px solid #000000;
+  padding: 6px 12px;
+  box-shadow: 3px 3px 0px 0px #000000;
+  width: 100%;
+}
+
+.barcode-num {
+  font-family: monospace;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  color: #000000;
+  margin-top: 2px;
+}
+
+/* Responsive Media Queries */
 @media (max-width: 900px) {
   .edu-ticket {
     flex-direction: column;
   }
   .ticket-left {
     border-right: none;
-    border-bottom: 8px dashed var(--border);
-    padding: 40px 20px;
+    border-bottom: 6px dashed #000000;
+    padding: 32px 20px;
   }
   .ticket-left::before,
   .ticket-left::after {
@@ -191,12 +319,9 @@
   }
   .ticket-right {
     width: 100%;
-    padding: 50px 20px;
-  }
-  .edu-degree {
-    font-size: 2.2rem;
+    padding: 36px 20px;
   }
   .edu-year {
-    font-size: 3.5rem;
+    font-size: 2.8rem;
   }
 }

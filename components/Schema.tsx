@@ -1,6 +1,7 @@
 export default function Schema() {
   return (
     <script
+      id="schema-org"
       type="application/ld+json"
       dangerouslySetInnerHTML={{
         __html: JSON.stringify({
@@ -11,7 +12,7 @@ export default function Schema() {
           jobTitle: "Full Stack Developer",
           sameAs: [
             "https://www.linkedin.com/in/alkama-sunasara-b682a3316/",
-            "https://github.com/yourusername",
+            "https://github.com/AlkamaSunasara00",
           ],
           worksFor: {
             "@type": "Organization",

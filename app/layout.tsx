@@ -76,7 +76,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} font-sans`}>
-      <Schema/>
+      <head>
+        <Schema />
+      </head>
       <body>{children}</body>
     </html>
   )
